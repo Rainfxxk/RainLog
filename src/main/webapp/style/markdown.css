@@ -1,0 +1,117 @@
+.markdown * {
+    word-break: break-all;
+}
+
+
+/* 标题 */
+.markdown h1 {
+    color: #386bf3;
+    margin-bottom: 30px;
+}
+
+.markdown h2 {
+    color: #386bf3;
+    margin-bottom: 25px;
+}
+
+.markdown h3 {
+    color: #386bf3;
+    margin-bottom: 20px;
+}
+
+.markdown h4 {
+    color: #386bf3;
+    margin-bottom: 15px;
+}
+
+.markdown h5 {
+    color: #386bf3;
+    margin-bottom: 15px;
+}
+
+.markdown h6 {
+    color: #386bf3;
+    margin-bottom: 15px;
+}
+
+/* 横线 */
+.markdown hr {
+    height: 1px;
+    background: #cbcbcb;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* 段落 */
+.markdown p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* 粗体斜体 */
+.markdown strong {
+    color: #386bf3;
+}
+
+.markdown em {
+    color: #386bf3;
+}
+
+/* 块引用 */
+.markdown blockquote {
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #f7f7f7;
+    border-left: #cbcbcb solid 2px;
+}
+
+.markdown blockquote blockquote {
+    margin-bottom: 0;
+}
+
+/* 代码引用 */
+.markdown pre {
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #f7f7f7;
+}
+
+.markdown pre code {
+    word-break: break-all;
+    font-family: "Hack Nerd Font";
+}
+
+/* 有序列表 无序列表 */
+.markdown li {
+    margin-left: 20px;
+}
+
+.markdown li li {
+    margin-left: 20px;
+}
+
+.markdown li li li {
+    margin-left: 20px;
+}
+
+/* 表格 */
+.markdown table {
+    background-color: rgb(216, 216, 216);
+}
+
+.markdown table th, td {
+    padding: 5px;
+}
+
+.markdown table th{
+    background-color: white;
+}
+
+.markdown table td {
+    background-color: #f7f7f7;
+}
+
+/* 图片 */
+.markdown img {
+    max-width: 80%;
+}

@@ -1,0 +1,388 @@
+.page_panel {
+    width: 100%;
+    height: 100%;
+    margin-top: 68px;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_box {
+    width: 900px;
+    justify-content: start;
+    align-items: center;
+}
+
+.page_header {
+    width: 100%;
+    background: white;
+}
+
+.page_main_box {
+    margin: 25px;
+    align-items: center;
+}
+
+.user_avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50vh;
+    background-size: cover;
+}
+
+.user_info_box {
+    margin: 10px;
+}
+
+.user_name {
+    font-size: x-large;
+    margin-bottom: 10px;
+}
+
+.fan_follow {
+    color: #9c9c9c;
+    font-size: small;
+}
+
+.num {
+    color: black;
+    margin: 0 5px 0 5px;
+}
+
+.user_signature {
+    margin-top: 5px;
+}
+
+.follow_button {
+    justify-self: end;
+    align-self: flex-end;
+    margin: 10px;
+    padding: 10px 15px;
+    background: #386bf3;
+    border-radius: 50vh;
+    margin-left: auto;
+    font-size: medium;
+    color: white;
+    cursor: pointer;
+}
+
+.edit_profile_button {
+    display: none;
+    justify-self: end;
+    align-self: flex-end;
+    margin: 10px;
+    margin-left: auto;
+    font-size: small;
+    color: #9c9c9c;
+}
+
+.edit_profile_button:hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.page_box hr {
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.page_navigation_box {
+    justify-content: space-around;
+}
+
+.page_navigation_item {
+    padding: 15px 0 15px;
+    color: #9c9c9c;
+}
+
+.page_navigation_item :hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.page_navigation_selected {
+    padding: 15px 0 10px;
+    border-bottom: #386bf3 5px solid;
+    color: #386bf3;
+}
+
+.page_content_box {
+    width: 900px;
+    background: white;
+    margin: 10px 0 10px;
+    border-radius: 5px;
+}
+
+.content_box {
+    display: none;
+}
+
+.selected_content_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.content_container {
+    background: white;
+    border-radius: 5px;
+}
+
+.content_container:not(:first-child) {
+    margin-top: 10px;
+}
+
+.content_container_box {
+    margin: 10px;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.avatar {
+    margin: 10px;
+}
+
+.avatar div {
+    width: 50px;
+    height: 50px;
+    background-color: #386bf3;
+    border-radius: 50vh;
+    text-align: center;
+}
+
+.content_topic_box {
+    flex-grow: 1;
+    max-width: 600px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.content_topic_box * {
+    margin-top: 5px;
+}
+
+.user_name {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.topic_info {
+    color: #9c9c9c;
+    font-size: small;
+}
+
+.content_text {
+    font-family: "等线";
+    font-size: medium;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.content_image_grid {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+}
+
+.content_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    background-image: url("/src/background.png");
+    background-size: cover;
+}
+
+.content_image_background {
+    margin: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.content_image_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.article {
+    height: 200px;
+    width: 600px;
+    margin: 0;
+    background-image: url("/src/005INxgKgy1gn0talmzy8j31r80zkn6f.jpg");
+    background-size: cover;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.article_background {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.article_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.article_title {
+    margin: 0;
+    padding: 20px 10px 20px;
+    font-size: large;
+    font-weight: bold;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));/* 默认渐变位置从上往下 */
+    color: white;
+}
+
+.content_footer {
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.content_footer li {
+    color: #9c9c9c;
+}
+
+.content_footer li:hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.follow_container {
+    margin: 10px;
+    align-items: center;
+}
+
+.cancel_follow_button {
+    margin-left: auto;
+    background: #386bf3;
+    color: white;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 50vh;
+}
+
+.cancel_follow_button:hover {
+    cursor: pointer;
+}
+
+.profile_panel {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.profile_box {
+    background: white;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.profile_box label {
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_box {
+    margin: 0 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.input_box input {
+    outline: none;
+    border-bottom: #000 1px solid;
+    margin: 10px 10px;
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    flex: 1;
+}
+
+.input_box input::placeholder {
+    color: black;
+}
+
+.avatar_selector_box {
+    margin: 20px;
+    align-self: center;
+}
+
+.avatar_background {
+    width: 80px;
+    height: 80px;
+    border-radius: 50vh;
+    text-align: center;
+    background-image: url(/src/svg.svg);
+    background-size: cover;
+}
+
+.avatar_selector_box input {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50vh;
+    color: transparent;
+    opacity: 0;
+}
+
+.avatar_selector_box input:hover {
+    cursor: pointer;
+}
+
+.email_box, .phone_box {
+    justify-content: center;
+    align-items: center;
+}
+
+.email_box .div, .phone_box .div {
+    justify-content: center;
+    align-items: center;
+}
+
+.captcha_button {
+    background-color: #386bf3;
+    color: white;
+    height: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50vh;
+}
+
+.captcha_button:hover {
+    cursor: pointer;
+}
+
+.profile_button_box {
+    margin: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cancel_profile_button, .profile_button {
+    align-self: center;
+    background: #386bf3;
+    margin: 10px;
+    width: 80px;
+    height: 40px;
+    border-radius: 50vh;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}

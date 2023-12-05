@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<application>
+
+    <beans>
+        <bean id = "user" class = "blog.rain.com.rainlog.controller.UserController">
+            <property name = "userService" ref = "userService"/>
+            <property name="followService" ref="followService"/>
+        </bean>
+
+        <bean id = "userService" class = "blog.rain.com.rainlog.service.impl.UserServiceImpl">
+            <property name = "userDAO" ref = "userDAO"/>
+        </bean>
+
+        <bean id = "userDAO" class="blog.rain.com.rainlog.dao.impl.UserDAOImpl"/>
+
+        <bean id="post" class="blog.rain.com.rainlog.controller.PostController">
+            <property name="postService" ref="postService"></property>
+            <property name="userService" ref="userService"></property>
+            <property name="followService" ref="followService"></property>
+            <property name="bookmarkService" ref="bookmarkService"></property>
+            <property name="likeService" ref="likeService"></property>
+            <property name="commentService" ref="commentService"></property>
+        </bean>
+
+        <bean id="postService" class="blog.rain.com.rainlog.service.impl.PostServiceImpl">
+            <property name="postDAO" ref="postDAO"></property>
+        </bean>
+
+        <bean id="postDAO" class="blog.rain.com.rainlog.dao.impl.PostDAOImpl"></bean>
+
+        <bean id="follow" class="blog.rain.com.rainlog.controller.FollowController">
+            <property name="followService" ref="followService"></property>
+        </bean>
+
+        <bean id="followService" class="blog.rain.com.rainlog.service.impl.FollowServiceImpl">
+            <property name="followDAO" ref="followDAO"></property>
+        </bean>
+
+        <bean id="followDAO" class="blog.rain.com.rainlog.dao.impl.FollowDAOImpl"></bean>
+
+        <bean id="blog" class="blog.rain.com.rainlog.controller.BlogController">
+            <property name="blogService" ref="blogService"></property>
+            <property name="userService" ref="userService"></property>
+            <property name="followService" ref="followService"></property>
+            <property name="bookmarkService" ref="bookmarkService"></property>
+            <property name="likeService" ref="likeService"></property>
+            <property name="commentService" ref="commentService"></property>
+        </bean>
+
+        <bean id="blogService" class="blog.rain.com.rainlog.service.impl.BlogServiceImpl">
+            <property name="blogDAO" ref="blogDAO"></property>
+        </bean>
+
+        <bean id="blogDAO" class="blog.rain.com.rainlog.dao.impl.BlogDAOImpl"></bean>
+
+        <bean id="comment" class="blog.rain.com.rainlog.controller.CommentController">
+            <property name="commentService" ref="commentService"></property>
+            <property name="userService" ref="userService"></property>
+            <property name="blogService" ref="blogService"></property>
+            <property name="postService" ref="postService"></property>
+        </bean>
+
+        <bean id="commentService" class="blog.rain.com.rainlog.service.impl.CommentServiceImpl">
+            <property name="commentDAO" ref="commentDAO"></property>
+        </bean>
+
+        <bean id="commentDAO" class="blog.rain.com.rainlog.dao.impl.CommentDAOImpl"></bean>
+
+        <bean id="bookmark" class="blog.rain.com.rainlog.controller.BookmarkController">
+            <property name="bookmarkService" ref="bookmarkService"></property>
+            <property name="blogService" ref="blogService"></property>
+            <property name="postService" ref="postService"></property>
+        </bean>
+
+        <bean id="bookmarkService" class="blog.rain.com.rainlog.service.impl.BookmarkServiceImpl">
+            <property name="bookmarkDAO" ref="bookmarkDAO"></property>
+        </bean>
+
+        <bean id="bookmarkDAO" class="blog.rain.com.rainlog.dao.impl.BookmarkDAOImpl"></bean>
+
+        <bean id="like" class="blog.rain.com.rainlog.controller.LikeController">
+            <property name="likeService" ref="likeService"></property>
+            <property name="blogService" ref="blogService"></property>
+            <property name="postService" ref="postService"></property>
+        </bean>
+
+        <bean id="likeService" class="blog.rain.com.rainlog.service.impl.LikeServiceImpl">
+            <property name="likeDAO" ref="likeDAO"></property>
+        </bean>
+
+        <bean id="likeDAO" class="blog.rain.com.rainlog.dao.impl.LikeDAOImpl"></bean>
+
+    </beans>
+
+</application>
