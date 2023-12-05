@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="/src/favicon.ico">
+    <link rel="stylesheet" href="/style/edit.css">
+    <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="/style/markdown.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="header_bar_box">
+            <div class="header_bar_content">
+                <div class="left_logo_item">
+                    <a href="http://localhost:8080/">
+                        <div class="logo">
+                            <svg width="48" height="48" 
+                                viewbox="0 0 1024 1024"
+                                xmlns="http://www.w3.org/2000/svg"
+                                data-spm-anchor-id="a313x.search_index.0.i1.5f043a81xMatTF" p-id="4118" version="1.1"
+                                class="icon"
+                                title="icon"
+                                t="1696258058078">
+                                <g>
+                                    <title>Layer 1</title>
+                                    <path id="svg_1" p-id="4119" fill="#C3D2FB"
+                                        d="m508,672l-264,0c-90.4,0 -164,-73.6 -164,-164s73.6,-164 164,-164l264,0c90.4,0 164,73.6 164,164s-73.6,164 -164,164z" />
+                                    <path id="svg_2" p-id="4120" fill="#7094F3"
+                                        d="m692.8,672l-194.4,0c-146.4,0 -266.4,-120 -266.4,-266.4l0,-51.2c0,-146.4 120,-266.4 266.4,-266.4c161.6,0 293.6,132 293.6,293.6l0,191.2c0,54.4 -44.8,99.2 -99.2,99.2z" />
+                                    <path id="svg_3" p-id="4121" fill="#386BF3"
+                                        d="m488,444a228,228 0 1 0 456,0a228,228 0 1 0 -456,0z" />
+                                    <path id="svg_4" class="selected"
+                                        data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                                        d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                                    <path id="svg_5" class="selected"
+                                        data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                                        d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                                    <path id="svg_6" class="selected"
+                                        data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                        d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                                    <path id="svg_7" class="selected"
+                                        data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                        d="m650.28484,752l96,0l0,144l-96,0l0,-144z" />
+                                    <path id="svg_8" class="selected"
+                                        data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                        d="m269.38765,752l96,0l0,144l-96,0l0,-144z" />
+                                </g>
+                            </svg>
+                            <span>
+                                RainLog
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="center_search_item">
+                    <input type="text" placeholder="输入搜索内容">
+                    <i class="fa fa-search fa-lg" aria-hidden="true" /></i>
+                </div>
+
+                <div class="right_entry_item">
+                    <div class="content_topic_selector flex_box flex_row" >
+                        <div class="content_topic_selector_item content_topic_selector_item_selected" data-topic="all">
+                            <a>全部</a>
+                        </div>
+                        <div class="content_topic_selector_item" data-topic="blog">
+                            <a>博客</a>
+                        </div>
+                        <div class="content_topic_selector_item" data-topic="post">
+                            <a>动态</a>
+                        </div>
+                    </div>
+
+                    <ul class="right_entry_item">
+                        <a class="edit_blog_link" href="/blog/edit">
+                            <li >
+                                <i class="fa fa-file-text" aria-hidden="true" /></i>
+                            </li>
+                        </a>
+                        <a>
+                            <li>
+                                <i class="post_icon fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                            </li>
+                        </a>
+                        <a class="user_page_link">
+                            <li class="go_login_avatar_entry">
+                                <div class="go_login_text">
+                                    <span>登录</span>
+                                </div>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="edit_panel flex_box flex_row">
+            <div class="edit_box flex_box flex_column">
+                <input class="title_input"type="text" placeholder="请输入标题(建议30字以内)">
+                <div class="markdown_file_operate_box flex_box flex_row">
+                    <div class="open_file_box flex_box">
+                        <i class="fa-lg fa fa-folder-open" aria-hidden="true" /></i>
+                        <input class="open_file_input" type="file" accept=".txt, .md">
+                    </div>
+                    <div class="save_file_box flex_box">
+                        <i class="fa-lg fa fa-save" aria-hidden="true" /></i>
+                    </div>
+                </div>
+                <div class="edit_zone flex_box flex_row">
+                    <div class="edit_input_box flex_box">
+                        <textarea class="edit_input" placeholder="使用 Markdown 编辑你的文章"></textarea>
+                    </div>
+                    <div class="markdown">
+                    </div>
+                </div>
+                <div class="cover_image_selector_box">
+                    <div class="cover_image_tip flex_box">
+                        <i class="image_icon fa fa-image" aria-hidden="true" /></i>
+                        <span>选择封面图片</span>
+                    </div>
+                    <div class="cover_image_selector flex_box">
+                        <i class="fa fa-plus" aria-hidden="true" /></i>
+                        <input class="cover_image_selector_input" type="file" accept=".jpg, .png, .jpeg", multiple="true">
+                    </div>
+                </div>
+                <div class="edit_button_box flex_box">
+                    <div class="edit_button flex_box">
+                        <span>发布</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login_task_panel">
+        <div class = "login_task_box flex_box flex_row">
+            <div class="login_panel login_box flex_box flex_column">
+                <div class="logo flex_box flex_row">
+                    <svg width="48" height="48"
+                         viewbox="0 0 1024 1024"
+                         xmlns="http://www.w3.org/2000/svg"
+                         data-spm-anchor-id="a313x.search_index.0.i1.5f043a81xMatTF" p-id="4118" version="1.1"
+                         class="icon"
+                         title="icon"
+                         t="1696258058078">
+                        <g>
+                            <title>Layer 1</title>
+                            <path id="svg_1" p-id="4119" fill="#C3D2FB"
+                                  d="m508,672l-264,0c-90.4,0 -164,-73.6 -164,-164s73.6,-164 164,-164l264,0c90.4,0 164,73.6 164,164s-73.6,164 -164,164z" />
+                            <path id="svg_2" p-id="4120" fill="#7094F3"
+                                  d="m692.8,672l-194.4,0c-146.4,0 -266.4,-120 -266.4,-266.4l0,-51.2c0,-146.4 120,-266.4 266.4,-266.4c161.6,0 293.6,132 293.6,293.6l0,191.2c0,54.4 -44.8,99.2 -99.2,99.2z" />
+                            <path id="svg_3" p-id="4121" fill="#386BF3"
+                                  d="m488,444a228,228 0 1 0 456,0a228,228 0 1 0 -456,0z" />
+                            <path id="svg_4" class="selected"
+                                  data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                                  d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                            <path id="svg_5" class="selected"
+                                  data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                                  d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                            <path id="svg_6" class="selected"
+                                  data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                  d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                            <path id="svg_7" class="selected"
+                                  data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                  d="m650.28484,752l96,0l0,144l-96,0l0,-144z" />
+                            <path id="svg_8" class="selected"
+                                  data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                                  d="m269.38765,752l96,0l0,144l-96,0l0,-144z" />
+                        </g>
+                    </svg>
+                    <span>
+                        RainLog
+                    </span>
+                </div>
+                <div class="login_form_panel">
+                    <div class="login_method flex_box flex_row">
+                        <div class="login_method_item login_method_item_clicked" data-method="pwd">
+                            密码登录
+                        </div>
+                        <div class="login_method_item" data-method="sms">
+                            手机登录
+                        </div>
+                        <div class="login_method_item" data-method="email">
+                            邮箱登录
+                        </div>
+                    </div>
+                    <div class="login_form flex_box flex_column">
+                        <div class="login_form_id_box flex_box flex_row">
+                            <input class="login_form_id" type="text" placeholder="手机号/邮箱/用户名">
+                            <div class="send_captcha flex_box">
+                                <span>发送验证码</span>
+                            </div>
+                        </div>
+                        <input class="login_form_pwd" type="text" placeholder="密码">
+                        <div class="login_tip">账号或密码错误！</div>
+                        <button class="login_button">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post_task_panel flex_box flex_column">
+        <div class="post_task_box">
+            <div class="logo">
+                <svg width="48" height="48" 
+                    viewbox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-spm-anchor-id="a313x.search_index.0.i1.5f043a81xMatTF" p-id="4118" version="1.1"
+                    class="icon"
+                    title="icon"
+                    t="1696258058078">
+                    <g>
+                        <title>Layer 1</title>
+                        <path id="svg_1" p-id="4119" fill="#C3D2FB"
+                            d="m508,672l-264,0c-90.4,0 -164,-73.6 -164,-164s73.6,-164 164,-164l264,0c90.4,0 164,73.6 164,164s-73.6,164 -164,164z" />
+                        <path id="svg_2" p-id="4120" fill="#7094F3"
+                            d="m692.8,672l-194.4,0c-146.4,0 -266.4,-120 -266.4,-266.4l0,-51.2c0,-146.4 120,-266.4 266.4,-266.4c161.6,0 293.6,132 293.6,293.6l0,191.2c0,54.4 -44.8,99.2 -99.2,99.2z" />
+                        <path id="svg_3" p-id="4121" fill="#386BF3"
+                            d="m488,444a228,228 0 1 0 456,0a228,228 0 1 0 -456,0z" />
+                        <path id="svg_4" class="selected"
+                            data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                            d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                        <path id="svg_5" class="selected"
+                            data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#3D4265"
+                            d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                        <path id="svg_6" class="selected"
+                            data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                            d="m464,752l96,0l0,144l-96,0l0,-144z" />
+                        <path id="svg_7" class="selected"
+                            data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                            d="m650.28484,752l96,0l0,144l-96,0l0,-144z" />
+                        <path id="svg_8" class="selected"
+                            data-spm-anchor-id="a313x.search_index.0.i0.5f043a81xMatTF" p-id="4122" fill="#0061b2"
+                            d="m269.38765,752l96,0l0,144l-96,0l0,-144z" />
+                    </g>
+                </svg>
+                <span>
+                    RainLog
+                </span>
+            </div>
+            <div class="post_text_box">
+                <div class="post_text" contenteditable="true"></div>
+            </div>
+            <div class="image_box flex_box flex_column">
+                <div class="post_image_tip flex_box">
+                    <i class="fa fa-image" aria-hidden="true" /></i>
+                    <span>选择图片</span>
+                </div>
+                <div class="post_image_grid">
+                    <div class="post_image_selector flex_box">
+                        <i class="fa fa-plus" aria-hidden="true" /></i>
+                        <input class="post_image_selector_input" type="file" accept=".jpg, .png, .jpeg", multiple="true">
+                    </div>
+                </div>
+            </div>
+            <div class="post_button_box flex_box flex_row">
+                <div class="post_button">
+                    发布
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/header.js"></script>
+    <script type="text/javascript" src="/js/edit.js"></script>
+</body>
+</html>

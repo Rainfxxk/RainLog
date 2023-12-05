@@ -1,0 +1,10 @@
+您正在注册【RainLog】，验证码为：
+<br>
+<h1>
+    <span style="border-bottom:1px dashed #ccc;z-index:1" t="7" >xxxxxx</span>
+</h1>
+<br>
+该验证码 10 分钟内有效，请勿将验证码告知给他人！
+<br>
+<br>
+<font color="grey">本邮件由系统自动发出，请勿回复。</font>

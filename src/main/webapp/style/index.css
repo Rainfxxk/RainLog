@@ -1,0 +1,635 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #f1f2f5;
+    height: 100%;
+    height: 100%;
+}
+
+.flex_box {
+    display: flex;
+}
+
+.flex_column {
+    flex-direction: column;
+}
+
+.flex_row {
+    flex-direction: row;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    background: #f1f2f5;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_bar_box {
+    z-index: 1;
+    max-height: 58.45px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.header_bar_content {
+    margin: 5px 20px ;
+    width: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.left_logo_item {
+    background: white;
+    max-height: 48.45px;
+}
+
+.left_logo_item a {
+    height: 48.45px;
+    width: 160.8px;
+    display: flex;
+    justify-self: center;
+    text-decoration: none;
+    outline: none;
+    color: #000;
+}
+
+.logo svg {
+    vertical-align: middle;
+}
+
+.logo span {
+    font-family: 'ink free';
+    font-size: xx-large;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.center_search_item {
+    margin: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    background: #f0f1f4;
+    border-radius: 50vh;
+}
+
+.center_search_item i {
+    margin: 10px;
+}
+
+.center_search_item input {
+    margin-left: 15px;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: medium;
+}
+
+.content_topic_selector_item {
+    margin: 10px 15px 0;
+    padding-bottom: 15px;
+    color: #9c9c9c;
+    font-family: '黑体';
+    text-align: center;
+}
+
+
+.content_topic_selector_item :hover{
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.content_topic_selector_item_selected {
+    color: #386bf3;
+    font-weight: bold;
+    border-bottom: solid 5px;
+    padding-bottom: 10px;
+    border-color: #386bf3;
+}
+
+.content_topic_selector_item a {
+    display: block;
+    width: 32px;
+    height: 16px;
+    min-width: 32px;
+}
+
+.right_entry_item {
+    list-style-type: none;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.right_entry_item li {
+    background: #386bf3;
+    margin: 0 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right_entry_item li :hover {
+    cursor: pointer;
+}
+
+.right_entry_item li i {
+    color: white;
+}
+
+.right_entry_item .go_login_avatar_entry {
+    background-color: #386bf3;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.go_login_text {
+    color: white;
+}
+
+.content_box {
+    padding-top: 68px;
+    justify-content: center;
+    top: 0;
+}
+
+.content_sidebar_box {
+    margin: 0 10px 10px;
+    height: fit-content;
+    /* 这里我就是不懂了，你妈的为啥非得给个魔数才能把你的宽度定下来，fit-content就不行，我操你妈 */
+    width: 220px;
+    min-width: 220px;
+    border-radius: 5px;
+}
+
+.content_sidebar {
+    height: fit-content;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.content_sidebar_item:not(:first-child) {
+    margin-top: 10px;
+}
+
+.content_sidebar_item {
+    padding: 5px;
+    width: auto;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.content_sidebar_item h2 {
+    margin-left: 5px;
+}
+
+.content_sidebar_item hr {
+    margin: 5px;
+    height: 1px;
+    width: 200px;
+    background: #cbcbcb;
+}
+
+
+.sidebar_item {
+    font-size: medium;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar_item div {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar_item div:hover {
+    cursor: pointer;
+    background: #f0f1f4;
+}
+
+.sidebar_item_clicked {
+    color: #386bf3;
+    font-weight: bold;
+    border-left: solid 5px;
+    padding-left: 5px;
+}
+
+.content_container_panel {
+    width: 700px;
+}
+
+.content_container {
+    background: white;
+    border-radius: 5px;
+}
+
+.content_container:not(:first-child) {
+    margin-top: 10px;
+}
+
+.content_container_box {
+    margin: 10px;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.avatar {
+    margin: 10px;
+}
+
+.avatar div {
+    width: 50px;
+    height: 50px;
+    background-color: #386bf3;
+    border-radius: 50vh;
+    text-align: center;
+}
+
+.content_topic_box {
+    flex-grow: 1;
+    max-width: 600px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.content_topic_box * {
+    margin-top: 5px;
+}
+
+.user_name {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.topic_info {
+    color: #9c9c9c;
+    font-size: small;
+}
+
+.content_text {
+    font-family: "等线";
+    font-size: medium;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.content_image_grid {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+}
+
+.content_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    background-image: url("/src/background.png");
+    background-size: cover;
+}
+
+.content_image_background {
+    margin: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.content_image_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.article {
+    height: 200px;
+    width: 600px;
+    margin: 0;
+    background-image: url("/src/005INxgKgy1gn0talmzy8j31r80zkn6f.jpg");
+    background-size: cover;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.article_background {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.article_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.article_title {
+    margin: 0;
+    padding: 20px 10px 20px;
+    font-size: large;
+    font-weight: bold;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));/* 默认渐变位置从上往下 */
+    color: white;
+}
+
+.content_footer {
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.content_footer li {
+    color: #9c9c9c;
+}
+
+.content_footer li:hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.login_task_panel {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    top: 0;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_task_box {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_panel {
+    justify-content: center;
+    align-items: center;
+}
+
+.login_panel .logo {
+    margin: 10px 0 20px;
+}
+
+.login_form * {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_panel h1 {
+    color: #386bf3;
+}
+
+.login_form_id_box {
+    margin: 0;
+}
+
+.login_form_id {
+   flex-grow: 1;
+}
+
+.send_captcha {
+    display: none;
+    margin: 10px 20px 20px 0;
+    background: #386bf3;
+    color: white;
+    border-radius: 50vh;
+    justify-content: center;
+    font-size: small;
+}
+
+.send_captcha span {
+    margin: 10px;
+}
+
+.login_panel input {
+    border: none;
+    outline: none;
+    padding-bottom: 5px;
+    border-bottom: solid 1px;
+    font-size: medium;
+}
+
+.login_tip {
+    margin: 0;
+    color: red;
+    text-align: center;
+}
+
+.login_button {
+    padding: 15px 0 15px;
+    border-radius: 50vh;
+    background: #386bf3;
+    color: white;
+}
+
+.login_button:hover {
+    cursor: pointer;
+}
+
+.login_method {
+    justify-content: space-around;
+}
+
+.login_method_item {
+    margin: 0 20px 10px;
+    padding: 20px 0 15px;
+    color: #9c9c9c;
+}
+
+.login_method_item:hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.login_method_item_clicked {
+    border-bottom: solid #386bf3 5px;
+    padding-bottom: 10px;
+    color: #386bf3;
+    font-weight: bold;
+}
+
+.post_task_panel {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_task_box {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.post_task_box .logo {
+    margin: 10px 10px 20px;
+}
+
+.post_text_box {
+    border: #386bf3 1px solid;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.post_text {
+    outline: none;
+    resize: none;
+    margin: 10px;
+    width: 580px;
+    height: auto;
+    line-height: 1.5;
+    font: 16px "等线";
+}
+
+.post_text * {
+    margin: 0 0 10px;
+}
+
+.post_button_box {
+    justify-content: end;
+    margin: 10px 10px 20px;
+}
+
+.post_button {
+    padding: 10px 25px;
+    background: #386bf3;
+    border-radius: 50vh;
+    align-self: self-end;
+    color: white;
+}
+
+.post_button:hover {
+    cursor: pointer;
+}
+
+.image_box {
+    margin: 10px;
+}
+
+.post_image_tip {
+    align-items: center;
+}
+
+.post_image_tip * {
+    color: #595959;
+    margin: 5px;
+    color: #386bf3;
+}
+
+.post_image_tip i {
+    font-size: 20px;
+    margin-left: 2px;
+    margin-right: 0;
+}
+
+.post_image_grid {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    gap: 5px 5px;
+}
+
+.post_image_grid img {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.post_image_grid_item {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.post_image_grid_item_background {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.post_image_grid_item_background:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.close_post_image_icon{
+    width: fit-content;
+    height: fit-content;
+    float: right;
+    margin: 5px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.close_post_image_icon :hover{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.post_image_selector {
+    width: 92px;
+    height: 92px;
+    color: #cbcbcb;
+    border-radius: 5px;
+    border: #cbcbcb solid 4px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_image_selector:hover {
+    cursor: pointer;
+    border: #386bf3 solid 4px;
+    color: #386bf3;
+}
+
+.post_image_selector input {
+    height: 100%;
+    color: transparent;
+    opacity: 0;
+}
+
+.post_image_selector i {
+    position: absolute;
+    color: inherit;
+}
+
+.post_image_selector input:hover {
+    cursor: pointer;
+}
