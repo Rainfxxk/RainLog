@@ -2,6 +2,8 @@ package blog.rain.com.rainlog.service;
 
 import blog.rain.com.rainlog.pojo.Post;
 
+import java.util.List;
+
 public interface PostService {
 
     public Post publishPost(int userId, String content, String[] images, String rootPath);
@@ -21,4 +23,6 @@ public interface PostService {
     void decreaseLikeNum(int postId);
 
     void increaseViewNum(int postId);
+
+    List<Post> getPostInPage(int pageNum);
 }

@@ -94,4 +94,9 @@ public class BlogServiceImpl implements BlogService {
     public void increaseViewNum(int blogId) {
         blogDAO.increaseViewNum(blogId);
     }
+
+    @Override
+    public List<Blog> getBlogInPage(int pageNum) {
+        return blogDAO.selectInPage(pageNum * 10, 10);
+    }
 }

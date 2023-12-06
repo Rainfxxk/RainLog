@@ -24,4 +24,6 @@ public interface BlogService {
     void increaseViewNum(int blogId);
 
     List<Blog> getTopTen();
+
+    List<Blog> getBlogInPage(int pageNum);
 }

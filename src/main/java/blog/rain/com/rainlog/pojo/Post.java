@@ -9,7 +9,7 @@ public class Post {
 
     private String content;
 
-    private String ImagePath;
+    private String imagePath;
 
     private LocalDateTime publishTime;
 
@@ -21,6 +21,12 @@ public class Post {
 
     private int bookmarkNum;
 
+    private User user;
+
+    private boolean isBookmark;
+
+    private boolean isLike;
+
     public Post() {
     }
 
@@ -28,7 +34,7 @@ public class Post {
         this.postId = postId;
         this.userId = userId;
         this.content = content;
-        ImagePath = imagePath;
+        this.imagePath = imagePath;
         this.publishTime = publishTime;
         this.viewNum = viewNum;
         this.likeNum = likeNum;
@@ -61,11 +67,11 @@ public class Post {
     }
 
     public String getImagePath() {
-        return ImagePath;
+        return imagePath;
     }
 
     public void setImagePath(String imagePath) {
-        ImagePath = imagePath;
+        this.imagePath = imagePath;
     }
 
     public LocalDateTime getPublishTime() {
@@ -108,6 +114,30 @@ public class Post {
         this.bookmarkNum = bookmarkNum;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public boolean isBookmark() {
+        return isBookmark;
+    }
+
+    public void setBookmark(boolean bookmark) {
+        isBookmark = bookmark;
+    }
+
+    public boolean isLike() {
+        return isLike;
+    }
+
+    public void setLike(boolean like) {
+        isLike = like;
+    }
+
     public void addImagePath(String imagePath) {
         String imagePaths = this.getImagePath();
 
@@ -127,7 +157,7 @@ public class Post {
                 "postId=" + postId +
                 ", userId=" + userId +
                 ", content='" + content + '\'' +
-                ", ImagePath='" + ImagePath + '\'' +
+                ", ImagePath='" + imagePath + '\'' +
                 ", publishTime=" + publishTime +
                 ", viewNum=" + viewNum +
                 ", likeNum=" + likeNum +

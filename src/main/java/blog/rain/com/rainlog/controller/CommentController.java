@@ -52,7 +52,7 @@ public class CommentController {
         Comment comment = commentService.commentBlog(commentContent, blogId, authorId, user.getUserId());
 
         HashMap<String, Object> jsonMap = new HashMap<>();
-        jsonMap.put("commentBlogResult", true);
+        jsonMap.put("commentResult", true);
         jsonMap.put("commentInfo", comment);
         jsonMap.put("userInfo", user);
 
@@ -74,13 +74,34 @@ public class CommentController {
         return "json:" + new Gson().toJson(jsonMap);
     }
 
+    public String getPostComment(int postId) {
+        List<Comment> postComments = commentService.getPostComments(postId);
+        List<User> users = new ArrayList<>();
+
+        for (Comment comment : postComments) {
+            User user = userService.getUserInfo(comment.getUserId());
+            users.add(user);
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("comments", postComments);
+        jsonMap.put("users", users);
+
+        return "json:" +
+                new GsonBuilder()
+                        .setPrettyPrinting()
+                        .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                        .create()
+                        .toJson(jsonMap);
+    }
+
     public String commentPost(String commentContent, int postId, int authorId, HttpSession session) {
         User user = (User) session.getAttribute("user");
         postService.increaseCommentNum(postId);
         Comment comment = commentService.commentPost(commentContent, postId, authorId, user.getUserId());
 
         HashMap<String, Object> jsonMap = new HashMap<>();
-        jsonMap.put("commentBlogResult", true);
+        jsonMap.put("commentResult", true);
         jsonMap.put("commentInfo", comment);
         jsonMap.put("userInfo", user);
 

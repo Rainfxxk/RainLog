@@ -80,4 +80,9 @@ public class PostDAOImpl extends BaseDAO<Post> implements PostDAO {
     public List<Post> selectAll() {
         return executeQuery("select * from post");
     }
+
+    @Override
+    public List<Post> selectInPage(int start, int end) {
+        return executeQuery("select * from post order by publish_time limit ?, ?", start, end);
+    }
 }

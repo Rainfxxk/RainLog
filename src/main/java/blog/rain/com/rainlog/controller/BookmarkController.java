@@ -54,7 +54,7 @@ public class BookmarkController {
 
         boolean result = bookmarkService.cancelBookmarkPost(user.getUserId(), postId);
         HashMap<String, Object> jsonMap = new HashMap<>();
-        jsonMap.put("cancelResult", result);
+        jsonMap.put("cancelBookmarkResult", result);
         return "json:" + new Gson().toJson(jsonMap);
     }
 }
