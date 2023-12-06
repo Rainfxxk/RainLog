@@ -8,10 +8,7 @@ import com.google.gson.Gson;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -63,36 +60,41 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void increaseBookmarkNum(int postId) {
-
+        postDAO.increaseBookmarkNum(postId);
     }
 
     @Override
     public void decreaseBookmarkNum(int postId) {
-
+        postDAO.decreaseBookmarkNum(postId);
     }
 
     @Override
     public void increaseCommentNum(int postId) {
-
+        postDAO.increaseCommentNum(postId);
     }
 
     @Override
     public void decreaseCommentNum(int postId) {
-
+        postDAO.decreaseCommentNum(postId);
     }
 
     @Override
     public void increaseLikeNum(int postId) {
-
+        postDAO.increaseLikeNum(postId);
     }
 
     @Override
     public void decreaseLikeNum(int postId) {
-
+        postDAO.decreaseLikeNum(postId);
     }
 
     @Override
     public void increaseViewNum(int postId) {
+        postDAO.increaseViewNum(postId);
+    }
 
+    @Override
+    public List<Post> getPostInPage(int pageNum) {
+        return postDAO.selectInPage(pageNum * 10, 10);
     }
 }

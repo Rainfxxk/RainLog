@@ -105,6 +105,32 @@ public class BlogController {
         return "json:" + new Gson().toJson(jsonMap);
     }
 
+    public String getBlogInfo(int pageNum, HttpSession session) {
+        List<Blog> blogs = blogService.getBlogInPage(pageNum);
+        User user = (User) session.getAttribute("user");
+
+        for (Blog blog : blogs) {
+            User author = userService.getUserInfo(blog.getUserId());
+            blog.setUser(author);
+            if (user == null) {
+                blog.setBookmark(false);
+                blog.setLike(false);
+            }
+            else {
+                blog.setBookmark( bookmarkService.isBookmarkPost(user.getUserId(), blog.getBlogId()));
+                blog.setLike(likeService.isLikePost(user.getUserId(), blog.getBlogId()));
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("blogInfos", blogs);
+
+        return "json:" + new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                .create()
+                .toJson(jsonMap);
+    }
+
     public String publishBlog(String title, String content, String cover, HttpSession session) {
         User user = (User) session.getAttribute("user");
         HashMap<String, Object> jsonMap = new HashMap<>();

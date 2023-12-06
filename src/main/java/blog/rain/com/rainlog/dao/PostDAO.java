@@ -30,4 +30,6 @@ public interface PostDAO {
     public List<Post> selectAll();
 
     public int updatePostImagePath(Post post);
+
+    public List<Post> selectInPage(int start, int end);
 }

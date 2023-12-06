@@ -25,6 +25,12 @@ public class Blog {
 
     private int bookmarkNum;
 
+    private User user;
+
+    private Boolean isBookmark;
+
+    private Boolean isLike;
+
     public Blog() {
     }
 
@@ -151,6 +157,30 @@ public class Blog {
 
     public void setBookmarkNum(int bookmarkNum) {
         this.bookmarkNum = bookmarkNum;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Boolean getBookmark() {
+        return isBookmark;
+    }
+
+    public void setBookmark(Boolean bookmark) {
+        isBookmark = bookmark;
+    }
+
+    public Boolean getLike() {
+        return isLike;
+    }
+
+    public void setLike(Boolean like) {
+        isLike = like;
     }
 
     @Override

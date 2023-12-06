@@ -40,7 +40,7 @@ public class LikeController {
         User user = (User) session.getAttribute("user");
         postService.increaseLikeNum(postId);
 
-        int likeId = likeService.likeBlog(user.getUserId(), postId, authorId);
+        int likeId = likeService.likePost(user.getUserId(), postId, authorId);
 
         HashMap<String, Object> jsonMap = new HashMap<>();
         jsonMap.put("likeResult", true);
@@ -52,7 +52,7 @@ public class LikeController {
         User user = (User) session.getAttribute("user");
         postService.decreaseLikeNum(postId);
 
-        boolean result = likeService.cancelLikeBlog(user.getUserId(), postId);
+        boolean result = likeService.cancelLikePost(user.getUserId(), postId);
         HashMap<String, Object> jsonMap = new HashMap<>();
         jsonMap.put("cancelLikeResult", result);
         return "json:" + new Gson().toJson(jsonMap);

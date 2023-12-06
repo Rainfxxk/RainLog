@@ -113,7 +113,7 @@ function generateComment(commentInfo, userInfo) {
     comment_container.appendChild(comment_content_box)
 
     if (blogDetail.isLogin) {
-        if (blogDetail.loginId == blogDetail.authorId || comment.userId == blogDetail.loginId) {
+        if (blogDetail.loginId == blogDetail.authorId || commentInfo.userId == blogDetail.loginId) {
             comment_container.appendChild(delete_button)
             delete_button.onclick = (event) => {
                 deleteBlogComment(comment, commentInfo.commentId)
@@ -246,7 +246,6 @@ function cancelBookmarkBlog() {
     let formData = new FormData()
 
     formData.append("blogId", blogDetail.blogId)
-    formData.append("bookmarkId", blogDetail.bookmarkId)
 
     fetch("/bookmark/cancelBookmarkBlog", {
         method: "POST",
@@ -331,7 +330,7 @@ function commentBlog() {
     .then((response) => response.json())
     .then((json) => {
         console.log(json)
-        if (json.commentBlogResult) {
+        if (json.commentResult) {
             let comment = generateComment(json.commentInfo, json.userInfo)
             comment_box.insertAdjacentElement("afterbegin", comment)
             comment_input.value = ""

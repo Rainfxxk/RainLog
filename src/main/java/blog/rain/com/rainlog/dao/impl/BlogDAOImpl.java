@@ -100,4 +100,8 @@ public class BlogDAOImpl extends BaseDAO<Blog> implements BlogDAO {
         return executeQuery("select * from blog order by publish_time");
     }
 
+    @Override
+    public List<Blog> selectInPage(int start, int end) {
+        return executeQuery("select * from blog order by publish_time limit ?, ?", start, end);
+    }
 }
