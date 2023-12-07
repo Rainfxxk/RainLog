@@ -107,7 +107,6 @@
 
 .page_content_box {
     width: 900px;
-    background: white;
     margin: 10px 0 10px;
     border-radius: 5px;
 }
@@ -251,6 +250,10 @@
 .follow_container {
     margin: 10px;
     align-items: center;
+}
+
+.followed_avatar div {
+    background-size: cover;
 }
 
 .cancel_follow_button {

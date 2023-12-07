@@ -32,4 +32,6 @@ public interface PostDAO {
     public int updatePostImagePath(Post post);
 
     public List<Post> selectInPage(int start, int end);
+
+    List<Post> getBookmarkPost(int userId);
 }

@@ -15,6 +15,8 @@ public class User {
 
     private String personalitySignature;
 
+    private boolean isFollowed;
+
     public User() {
 
     }
@@ -83,6 +85,14 @@ public class User {
 
     public void setPersonalitySignature(String personalitySignature) {
         this.personalitySignature = personalitySignature;
+    }
+
+    public boolean isFollowed() {
+        return isFollowed;
+    }
+
+    public void setFollowed(boolean followed) {
+        isFollowed = followed;
     }
 
     @Override

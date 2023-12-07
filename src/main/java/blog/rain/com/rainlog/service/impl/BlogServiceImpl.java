@@ -99,4 +99,14 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> getBlogInPage(int pageNum) {
         return blogDAO.selectInPage(pageNum * 10, 10);
     }
+
+    @Override
+    public List<Blog> getUserBlog(int userId) {
+        return blogDAO.selectByUserId(userId);
+    }
+
+    @Override
+    public List<Blog> getBookmarkBlog(int userId) {
+        return blogDAO.selectBookmarkBlog(userId);
+    }
 }

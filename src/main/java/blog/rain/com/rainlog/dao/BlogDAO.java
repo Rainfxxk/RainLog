@@ -38,4 +38,6 @@ public interface BlogDAO {
     public List<Blog> selectAll();
 
     public List<Blog> selectInPage(int start, int end);
+
+    List<Blog> selectBookmarkBlog(int userId);
 }

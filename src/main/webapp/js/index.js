@@ -664,10 +664,10 @@ function generateImageGrid(imagePaths) {
   for (let i = 0; i < imagePaths.length; i++) {
     let content_image = document.createElement("div")
     content_image.classList.add("content_image")
+    content_image.style.backgroundImage = `url(${imagePaths[i]})`
 
     let content_image_background = document.createElement("div")
     content_image_background.classList.add("content_image_background")
-    content_image_background.style.backgroundImage = `url(${imagePaths[i]})`
 
     content_image.appendChild(content_image_background)
     content_image_grid.appendChild(content_image)
@@ -760,37 +760,6 @@ function getContentInfo() {
   })
 }
 
-function commentBlog() {
-    let content = comment_input.value
-
-    if (content == "") {
-        alert("评论不允许为空")
-        return
-    }
-
-    let formData = new FormData()
-
-    formData.append("commentContent", content)
-    formData.append("blogId", blogDetail.blogId)
-    formData.append("authorId", blogDetail.authorId)
-
-    fetch("comment/commentBlog", {
-        method: "POST",
-        body: formData,
-    })
-    .then((response) => response.json())
-    .then((json) => {
-        console.log(json)
-        if (json.commentBlogResult) {
-            let comment = generateComment(json.commentInfo, json.userInfo)
-            comment_box.insertAdjacentElement("afterbegin", comment)
-            comment_input.value = ""
-        }
-    })
-}
-
-function deleteContentComment(comment, commentId) {
-}
 
 function getLoginState() {
   let formData = new FormData()

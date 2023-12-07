@@ -97,4 +97,14 @@ public class PostServiceImpl implements PostService {
     public List<Post> getPostInPage(int pageNum) {
         return postDAO.selectInPage(pageNum * 10, 10);
     }
+
+    @Override
+    public List<Post> getUserPost(int userId) {
+        return postDAO.selectByUserId(userId);
+    }
+
+    @Override
+    public List<Post> getBookmarkPost(int userId) {
+        return postDAO.getBookmarkPost(userId);
+    }
 }
