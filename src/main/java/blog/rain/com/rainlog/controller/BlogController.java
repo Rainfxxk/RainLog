@@ -50,6 +50,59 @@ public class BlogController {
                         .toJson(jsonMap);
     }
 
+    public String getUserBlog(int userId, HttpSession session) {
+        List<Blog> blogs = blogService.getUserBlog(userId);
+        User user = (User) session.getAttribute("user");
+
+        for (Blog blog : blogs) {
+            User author = userService.getUserInfo(blog.getUserId());
+            blog.setUser(author);
+            if (user == null) {
+                blog.setBookmark(false);
+                blog.setLike(false);
+            }
+            else {
+                blog.setBookmark( bookmarkService.isBookmarkBlog(user.getUserId(), blog.getBlogId()));
+                blog.setLike(likeService.isLikeBlog(user.getUserId(), blog.getBlogId()));
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("blogInfos", blogs);
+
+        return "json:" + new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                .create()
+                .toJson(jsonMap);
+    }
+
+    public String getBookmarkBlog(int userId, HttpSession session) {
+        List<Blog> blogs = blogService.getBookmarkBlog(userId);
+        User user = (User) session.getAttribute("user");
+
+        for (Blog blog : blogs) {
+            User author = userService.getUserInfo(blog.getUserId());
+            blog.setUser(author);
+            if (user == null) {
+                blog.setBookmark(false);
+                blog.setLike(false);
+            }
+            else {
+                blog.setBookmark( bookmarkService.isBookmarkBlog(user.getUserId(), blog.getBlogId()));
+                blog.setLike(likeService.isLikeBlog(user.getUserId(), blog.getBlogId()));
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("blogInfos", blogs);
+
+        return "json:" + new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                .create()
+                .toJson(jsonMap);
+
+    }
+
     public String getBlogDetail(int blogId, HttpSession session) {
         HashMap<String, Object> jsonMap = new HashMap<>();
         Blog blog = blogService.getBlog(blogId);
@@ -117,8 +170,8 @@ public class BlogController {
                 blog.setLike(false);
             }
             else {
-                blog.setBookmark( bookmarkService.isBookmarkPost(user.getUserId(), blog.getBlogId()));
-                blog.setLike(likeService.isLikePost(user.getUserId(), blog.getBlogId()));
+                blog.setBookmark( bookmarkService.isBookmarkBlog(user.getUserId(), blog.getBlogId()));
+                blog.setLike(likeService.isLikeBlog(user.getUserId(), blog.getBlogId()));
             }
         }
 

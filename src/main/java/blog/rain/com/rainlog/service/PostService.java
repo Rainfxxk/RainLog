@@ -25,4 +25,8 @@ public interface PostService {
     void increaseViewNum(int postId);
 
     List<Post> getPostInPage(int pageNum);
+
+    List<Post> getUserPost(int userId);
+
+    List<Post> getBookmarkPost(int userId);
 }

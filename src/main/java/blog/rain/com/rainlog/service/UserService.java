@@ -2,6 +2,8 @@ package blog.rain.com.rainlog.service;
 
 import blog.rain.com.rainlog.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
 
     /*
@@ -25,4 +27,6 @@ public interface UserService {
     public User getUserInfo(int userId);
 
     public int addNewUser(User user);
+
+    public List<User> getFollowUser(int userId);
 }

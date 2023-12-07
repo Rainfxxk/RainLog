@@ -122,4 +122,9 @@ public class UserServiceImpl implements UserService {
 
         return userid;
     }
+
+    @Override
+    public List<User> getFollowUser(int userId) {
+        return userDAO.getFollowUser(userId);
+    }
 }

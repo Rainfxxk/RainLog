@@ -58,4 +58,9 @@ public class UserDAOImpl extends BaseDAO<User> implements UserDAO {
         List<User> users = executeQuery("select * from user where user_name = ?", name);
         return users;
     }
+
+    @Override
+    public List<User> getFollowUser(int userId) {
+        return executeQuery("select user_id, user_name, avatar_path from user where user_id = (select to_id from follow where from_id = ?)", userId);
+    }
 }

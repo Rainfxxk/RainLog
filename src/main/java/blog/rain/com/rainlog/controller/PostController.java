@@ -25,16 +25,74 @@ public class PostController {
     private CommentService commentService = null;
 
     public String publishPost(String content, HttpSession session, String... images) {
+        HashMap<String, Object> jsonMap = new HashMap<>();
         User user = (User) session.getAttribute("user");
         int userId = user.getUserId();
 
         postService.publishPost(userId, content, images, session.getServletContext().getRealPath("/"));
 
-        HashMap<String, Object> jsonMap = new HashMap<>();
         jsonMap.put("postResult", true);
         Gson gson = new Gson();
         String json = gson.toJson(jsonMap);
         return "json:" + json;
+    }
+
+    public String getUserPost(int userId, HttpSession session) {
+        List<Post> posts = postService.getUserPost(userId);
+        User user = (User) session.getAttribute("user");
+
+        for (Post post : posts) {
+            User author = userService.getUserInfo(post.getUserId());
+            post.setUser(author);
+            postService.increaseViewNum(post.getPostId());
+
+            if (user == null) {
+                post.setBookmark(false);
+                post.setLike(false);
+            }
+            else {
+                post.setBookmark( bookmarkService.isBookmarkPost(user.getUserId(), post.getPostId()));
+                post.setLike(likeService.isLikePost(user.getUserId(), post.getPostId()));
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("postInfos", posts);
+
+        return "json:" + new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                .create()
+                .toJson(jsonMap);
+
+    }
+
+    public String getBookmarkPost(int userId, HttpSession session) {
+        List<Post> posts = postService.getBookmarkPost(userId);
+        User user = (User) session.getAttribute("user");
+
+        for (Post post : posts) {
+            User author = userService.getUserInfo(post.getUserId());
+            post.setUser(author);
+            postService.increaseViewNum(post.getPostId());
+
+            if (user == null) {
+                post.setBookmark(false);
+                post.setLike(false);
+            }
+            else {
+                post.setBookmark( bookmarkService.isBookmarkPost(user.getUserId(), post.getPostId()));
+                post.setLike(likeService.isLikePost(user.getUserId(), post.getPostId()));
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("postInfos", posts);
+
+        return "json:" + new GsonBuilder()
+                .registerTypeAdapter(LocalDateTime.class, new JsonLocalDateTimeAdapter())
+                .create()
+                .toJson(jsonMap);
+
     }
 
     public String getPostInfo(int pageNum, HttpSession session) {

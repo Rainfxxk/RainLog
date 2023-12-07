@@ -18,4 +18,6 @@ public interface UserDAO {
     public List<User> queryUserByEmail(String email);
 
     public List<User> queryUserByName(String name);
+
+    List<User> getFollowUser(int userId);
 }

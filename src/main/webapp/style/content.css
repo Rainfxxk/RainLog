@@ -1,0 +1,142 @@
+.content_container {
+    background: white;
+    border-radius: 5px;
+}
+
+.content_container:not(:first-child) {
+    margin-top: 10px;
+}
+
+.content_container_box {
+    margin: 10px;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.avatar {
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #386bf3;
+    background-size: cover;
+    border-radius: 50vh;
+    text-align: center;
+}
+
+.content_topic_box {
+    position: relative;
+    flex-grow: 1;
+    max-width: 600px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.content_topic_box * {
+    margin-top: 5px;
+}
+
+.user_name_link{
+    width: fit-content;
+}
+
+.user_name {
+    width: fit-content;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.topic_info {
+    color: #9c9c9c;
+    font-size: small;
+}
+
+.content_text {
+    font-family: "等线";
+    font-size: medium;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.content_image_grid {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    gap: 5px;
+}
+
+.content_image {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.content_image_background {
+    margin: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.content_image_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.article {
+    height: 200px;
+    width: 600px;
+    margin: 0;
+    background-image: url("/src/005INxgKgy1gn0talmzy8j31r80zkn6f.jpg");
+    background-size: cover;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.article_background {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.article_background:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.article_title {
+    margin: 0;
+    padding: 20px 10px 20px;
+    font-size: large;
+    font-weight: bold;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));/* 默认渐变位置从上往下 */
+    color: white;
+}
+
+.content_footer {
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.content_footer li {
+    color: #9c9c9c;
+}
+
+.content_footer li:hover {
+    cursor: pointer;
+    color: #386bf3;
+}
+
+.content_footer li i {
+    margin: 0 5px;
+}
+
+.view_num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #9c9c9c;
+    font-size: small;
+}

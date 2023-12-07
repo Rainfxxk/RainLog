@@ -9,14 +9,15 @@ import java.util.List;
 public class PostDAOImpl extends BaseDAO<Post> implements PostDAO {
     @Override
     public int addPost(Post post) {
-        return executeUpdate("insert into post values (null, ?, ?, ?, ?, ?, ?, ?)",
+        return executeUpdate("insert into post values (null, ?, ?, ?, ?, ?, ?, ?, ?)",
                 post.getUserId(),
                 post.getContent(),
                 post.getImagePath(),
                 post.getPublishTime(),
                 post.getViewNum(),
                 post.getLikeNum(),
-                post.getCommentNum());
+                post.getCommentNum(),
+                post.getBookmarkNum());
     }
 
     @Override
@@ -84,5 +85,10 @@ public class PostDAOImpl extends BaseDAO<Post> implements PostDAO {
     @Override
     public List<Post> selectInPage(int start, int end) {
         return executeQuery("select * from post order by publish_time limit ?, ?", start, end);
+    }
+
+    @Override
+    public List<Post> getBookmarkPost(int userId) {
+        return executeQuery("select * from post where post_id = (select topic_id from bookmark where user_id = ? and topic_type = 'post')", userId);
     }
 }

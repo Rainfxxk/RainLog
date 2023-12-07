@@ -12,6 +12,7 @@ import javassist.tools.rmi.AppletServer;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserController {
@@ -163,6 +164,28 @@ public class UserController {
 
         HashMap<String, Object> jsonMap = new HashMap<>();
         jsonMap.put("changeResult", true);
+
+        return "json:" + new Gson().toJson(jsonMap);
+    }
+
+    public String getFollowUser(int userId, HttpSession session) {
+        List<User> followUsers = userService.getFollowUser(userId);
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            for (User followUser: followUsers) {
+                followUser.setFollowed(false);
+            }
+        }
+        else {
+            for (User followUser: followUsers) {
+                boolean follow = followService.isFollow(user.getUserId(), followUser.getUserId());
+                followUser.setFollowed(follow);
+            }
+        }
+
+        HashMap<String, Object> jsonMap = new HashMap<>();
+        jsonMap.put("followUsers", followUsers);
 
         return "json:" + new Gson().toJson(jsonMap);
     }

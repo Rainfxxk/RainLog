@@ -26,4 +26,8 @@ public interface BlogService {
     List<Blog> getTopTen();
 
     List<Blog> getBlogInPage(int pageNum);
+
+    List<Blog> getUserBlog(int userId);
+
+    List<Blog> getBookmarkBlog(int userId);
 }
