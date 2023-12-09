@@ -4,7 +4,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Blog {
+public class Blog{
     private int blogId;
 
     private int userId;

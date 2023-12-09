@@ -6,6 +6,8 @@ import blog.rain.com.rainlog.util.captcha.factory.impl.SMSCaptchaSenderFactory;
 
 public interface CaptchaSenderFactory {
     public static CaptchaSenderFactory newInstance(String captchaClass) {
+        System.out.println("captchaClass: " + captchaClass);
+
         switch (captchaClass) {
             case "email":
                 return new EmailCaptchaSenderFactory();

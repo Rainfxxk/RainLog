@@ -107,6 +107,6 @@ public class BlogDAOImpl extends BaseDAO<Blog> implements BlogDAO {
 
     @Override
     public List<Blog> selectBookmarkBlog(int userId) {
-        return executeQuery("select * from blog where blog_id = (select topic_id from bookmark where user_id = ? and topic_type = 'blog')", userId);
+        return executeQuery("select blog.* from blog inner join bookmark on blog.blog_id = bookmark.topic_id where bookmark.user_id = ? and bookmark.topic_type = 'blog'", userId);
     }
 }

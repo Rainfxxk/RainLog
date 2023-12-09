@@ -76,7 +76,6 @@ public class UserController {
         CaptchaSenderFactory captchaSenderFactory = CaptchaSenderFactory.newInstance(type);
 
         String captcha = captchaSenderFactory.createCaptchaSender().sendCaptcha(address);
-        captcha = "123456";
 
         session.setAttribute(address , captcha);
 
@@ -94,8 +93,12 @@ public class UserController {
                     "}";
         }
 
+        System.out.println(sessionCaptcha + " " + captcha);
+
         if (!sessionCaptcha.equals(captcha)) {
             return "json:{" +
+                    "\"captcha\": " + captcha + ",\n"+
+                    "\"sessionCaptcha\": " + sessionCaptcha + ",\n" +
                     "\"loginResult\": false" +
                     "}";
         }
