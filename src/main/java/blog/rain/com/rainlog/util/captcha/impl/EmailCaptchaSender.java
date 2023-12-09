@@ -16,7 +16,10 @@ public class EmailCaptchaSender implements CaptchaSender {
             try {
                 StringBuilder stringBuilder = new StringBuilder();
                 String buffer;
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("F:\\Computer\\Java\\Projects\\RainLog\\src\\main\\resources\\captcha\\template\\email.txt"));
+
+                InputStream inputStream = EmailCaptchaSender.class.getClassLoader().getResourceAsStream("captcha/template/email.txt");
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                 while ( (buffer = bufferedReader.readLine()) != null) {
                     stringBuilder.append(buffer);

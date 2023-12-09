@@ -7,6 +7,6 @@ public class Test {
         EmailCaptchaSender emailCaptchaSender = new EmailCaptchaSender();
         // 经测试 qq邮箱 和 163邮箱 可以正常发送
         //emailCaptchaSender.sendCaptcha("csetxh@163.com");
-        emailCaptchaSender.sendCaptcha("2472047312@qq.com");
+        emailCaptchaSender.sendCaptcha("2190155325@qq.com");
     }
 }
