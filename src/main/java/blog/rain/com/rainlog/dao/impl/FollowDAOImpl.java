@@ -19,7 +19,7 @@ public class FollowDAOImpl extends BaseDAO<Follow> implements FollowDAO {
 
     @Override
     public int deleteFollow(int followId) {
-        return executeUpdate("delete from where follow_id = ?", followId);
+        return executeUpdate("delete from follow where follow_id = ?", followId);
     }
 
     @Override
