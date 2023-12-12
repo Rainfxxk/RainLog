@@ -22,7 +22,7 @@ public class UserDAOImpl extends BaseDAO<User> implements UserDAO {
 
     @Override
     public int deleteUser(User user) {
-        return executeUpdate("delete user where id = ?", user.getUserId());
+        return executeUpdate("delete from user where id = ?", user.getUserId());
     }
 
     @Override

@@ -89,6 +89,6 @@ public class PostDAOImpl extends BaseDAO<Post> implements PostDAO {
 
     @Override
     public List<Post> getBookmarkPost(int userId) {
-        return executeQuery("select post.* from post inner join bookmark on post.post_id = bookmark.topic_id where bookmark.user_id = ? and bookmark.topic_type = 'post';", userId);
+        return executeQuery("select post.* from post inner join bookmark on post.post_id = bookmark.topic_id where bookmark.user_id = ? and bookmark.topic_type = 'post'", userId);
     }
 }
