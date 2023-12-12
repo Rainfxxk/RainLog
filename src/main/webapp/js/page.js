@@ -329,6 +329,7 @@ cancel_profile_button.onclick = (event) => {
     avatar_background.style.backgroundImage = `url(${userInfo.avatarPath})`
     user_name_input.value = userInfo.userName
     personality_signature_input.value = userInfo.personalitySignature
+    profile_panel.style.display = "none"
 }
 
 /*
