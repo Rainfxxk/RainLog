@@ -220,6 +220,38 @@ function getBlogDetail() {
     })
 }
 
+follow_button.onclick = () => {
+    let url
+    let innerHTML
+    console.log(follow_button.innerHTML)
+    if (follow_button.innerHTML == "关注") {
+        url = "/follow/followUser"
+        innerHTML = "取消关注"
+    }
+    else {
+        url = "/follow/cancelFollowUser"
+        innerHTML = "关注"
+    }
+
+    let formData = new FormData()
+
+    formData.append("toId", blogDetail.authorId)
+
+    fetch(url, {
+        method: "POST",
+        body: formData
+    })
+    .then((response) => response.json())
+    .then((json) => {
+        if (json.followResult == "noLogin") {
+            remindLogin()
+        }
+        else if (json.followResult) {
+            follow_button.innerHTML = innerHTML
+        }
+    })
+}
+
 function bookmarkBlog() {
     let formData = new FormData()
 
