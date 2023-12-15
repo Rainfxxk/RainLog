@@ -107,11 +107,10 @@ public class BlogController {
         HashMap<String, Object> jsonMap = new HashMap<>();
         Blog blog = blogService.getBlog(blogId);
         blogService.increaseViewNum(blogId);
-        User author = null;
+        User author = userService.getUserInfo(blog.getUserId());
         User user = (User) session.getAttribute("user");
 
         if (user == null ) {
-            author = userService.getUserInfo(blog.getUserId());
             jsonMap.put("isLogin", false);
             jsonMap.put("isSelf", false);
             jsonMap.put("isFollow", false);
@@ -123,7 +122,6 @@ public class BlogController {
             jsonMap.put("loginAvatarPath", user.getAvatarPath());
             jsonMap.put("loginId", user.getUserId());
             if (blog.getUserId() == user.getUserId()) {
-                author = user;
                 jsonMap.put("isSelf", true);
             }
             else {
